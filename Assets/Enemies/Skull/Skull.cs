@@ -4,44 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSM;
 
-public class Skull : MonoBehaviour, IRandom
+public class Skull : Enemy
 {
-    public int health = 1;
-    public float speed = 1;
-
-    public int customSeed;
-    int seed;
-
     public Vector2 xRange;
     public Vector2 yRange;
     public Vector2 waitTimeMs;
 
-    private System.Random rng;
-
-    StateMachine stateMachine;
     State idleState = new State("idle");
     State walkState = new State("walk");
     State attackState = new State("attack");
     State hurtState = new State("hurt");
     State deadState = new State("dead");
 
-    public void SetSeed(int seed)
-    {
-        this.seed = seed;
-    }
-
     Coroutine waitForAttack;
     bool isHorizontalMove = false;
 
     private void Start()
     {
-        if (customSeed > 0)
-        {
-            seed = customSeed;
-        }
-
-        rng = new System.Random(seed);
-        stateMachine = new StateMachine();
+        Init();
 
         Vector2 nextPosition = transform.position;
 
@@ -86,11 +66,5 @@ public class Skull : MonoBehaviour, IRandom
     private void Update()
     {
         stateMachine.Tick();
-    }
-
-    IEnumerator Wait(float seconds, State nextState)
-    {
-        yield return new WaitForSeconds(seconds);
-        stateMachine.ChangeState(nextState);
     }
 }

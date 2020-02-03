@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
     public int seed;
     public int maxEnemySeed;
 
+    public Player player;
+
     private int combinedWeight;
     private System.Random rng;
 
@@ -63,7 +65,9 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy(EnemyMeta meta)
     {
         Vector2 spawnPoint = new Vector2(xSpawnCoodr[rng.Next(0, xSpawnCoodr.Count)], ySpawnCoord[rng.Next(0, ySpawnCoord.Count)]);
-        GameObject enemy = Instantiate(meta.enemyPrefab, spawnPoint, Quaternion.identity);
-        enemy.GetComponent<IRandom>().SetSeed(rng.Next(0, maxEnemySeed));
+        GameObject enemyObj = Instantiate(meta.enemyPrefab, spawnPoint, Quaternion.identity);
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.SetSeed(rng.Next(0, maxEnemySeed));
+        enemy.SetPlayer(player);
     }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1642228572014951215}
   - component: {fileID: 1642228572014951208}
   - component: {fileID: 1642228572014951209}
-  - component: {fileID: 1642228572014951213}
   - component: {fileID: 1642228572014951203}
   - component: {fileID: 1642228572014951212}
   m_Layer: 0
@@ -124,24 +123,6 @@ MonoBehaviour:
   xRange: {x: -35, y: 35}
   yRange: {x: -20, y: 15}
   waitTimeMs: {x: 1000, y: 3000}
---- !u!114 &1642228572014951213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642228572014951210}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520e9b577fc29474f8758f75f54b782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  speed: 0.2
-  dashSpeed: 6
 --- !u!50 &1642228572014951203
 Rigidbody2D:
   serializedVersion: 4
