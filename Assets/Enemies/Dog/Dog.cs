@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using FSM;
 using UnityEngine;
 
-public class Devil : Enemy {
+public class Dog : Enemy {
     public Vector2 waitTimeMs;
     public float chaseTime;
     float chaseTimeLeft;
@@ -24,7 +23,9 @@ public class Devil : Enemy {
         Init();
 
         idleState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("idle");
+            if (waitForChaseCoroutine != null) {
+                StopCoroutine(waitForChaseCoroutine);
+            }
             waitForChaseCoroutine = StartCoroutine(Wait(rng.Next((int) waitTimeMs.x, (int) waitTimeMs.y) / 1000, chaseState));
         }));
         idleState.exitActions.Add(new FSM.Action(() => {
@@ -34,7 +35,6 @@ public class Devil : Enemy {
         }));
 
         chaseState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("chaseState");
             chaseTimeLeft = chaseTime;
             chaseCoroutine = StartCoroutine(Chase());
         }));
@@ -48,8 +48,7 @@ public class Devil : Enemy {
         }));
 
         attackState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("Attack");
-            Attack();
+            waitAfterAttack = StartCoroutine(Wait(1, idleState));
         }));
         attackState.exitActions.Add(new FSM.Action(() => {
             if (waitAfterAttack != null) {
@@ -57,11 +56,15 @@ public class Devil : Enemy {
             }
         }));
 
+        deadState.enterActions.Add(new FSM.Action(() => {
+            Destroy(gameObject);
+        }));
+
         hurtState.enterActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
             }
-            waitStunned = StartCoroutine(Wait(2, idleState));
+            waitStunned = StartCoroutine(Wait(1, chaseState));
         }));
         hurtState.exitActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
@@ -74,10 +77,6 @@ public class Devil : Enemy {
 
     private void Update() {
         stateMachine.Tick();
-    }
-
-    private void Attack() {
-        waitAfterAttack = StartCoroutine(Wait(1, idleState));
     }
 
     protected IEnumerator Chase() {
