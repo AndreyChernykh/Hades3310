@@ -16,4 +16,6 @@ public static class Stats
     public static int money = 0;
 
     public static bool isZeusBoonEnabled = false;
+
+    public static int currentLevel = 0;
 }
