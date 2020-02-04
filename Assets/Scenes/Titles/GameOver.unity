@@ -394,21 +394,33 @@ PrefabInstance:
     - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
         type: 3}
       propertyPath: m_text
-      value: You dead!
+      value: 'You dead!
+
+        Try again'
       objectReference: {fileID: 0}
     - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 9
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
         type: 3}
       propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545446145296719673, guid: 96f49be2a94352a4889fce2265173e6d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
