@@ -27,6 +27,8 @@ public class EnemySpawner : MonoBehaviour {
     private int combinedWeight;
     private System.Random rng;
 
+    private List<Enemy> spawnedEnemies = new List<Enemy>();
+
     void Start() {
         rng = new System.Random(seed);
 
@@ -51,35 +53,6 @@ public class EnemySpawner : MonoBehaviour {
             rngWeight -= meta.spawnWeight;
         }
 
-        // if (weights == null || weights.Length == 0) return -1;
-
-        // float w;
-        // float t = 0;
-        // int i;
-        // for (i = 0; i < weights.Length; i++) {
-        //     w = weights[i];
-
-        //     if (float.IsPositiveInfinity(w)) {
-        //         return i;
-        //     }
-        //     else if (w >= 0f && !float.IsNaN(w)) {
-        //         t += weights[i];
-        //     }
-        // }
-
-        // float r = Random.value;
-        // float s = 0f;
-
-        // for (i = 0; i < weights.Length; i++) {
-        //     w = weights[i];
-        //     if (float.IsNaN(w) || w <= 0f) continue;
-
-        //     s += w / t;
-        //     if (s >= r) return i;
-        // }
-
-        // return -1;
-
         Debug.LogWarning("Spawn a default enemy");
         return enemies[0];
     }
@@ -90,5 +63,19 @@ public class EnemySpawner : MonoBehaviour {
         Enemy enemy = enemyObj.GetComponent<Enemy>();
         enemy.SetSeed(rng.Next(0, maxEnemySeed));
         enemy.SetPlayer(player);
+
+        spawnedEnemies.Add(enemy);
+
+        enemy.OnDie += UnregisterEnemy;
+    }
+
+    void UnregisterEnemy(Enemy enemy) {
+        spawnedEnemies.Remove(enemy);
+        enemy.OnDie -= UnregisterEnemy;
+
+        if (spawnedEnemies.Count <= 0) {
+            // TODO: Open the gate!
+            Debug.Log("Victory!");
+        }
     }
 }

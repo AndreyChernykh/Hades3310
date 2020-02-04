@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: 3030810503447750477
     second: Right Gate
+  - first:
+      213: 7430904043191675848
+    second: Level1_0
+  - first:
+      213: -1816729700469781720
+    second: Level1_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -109,7 +115,7 @@ TextureImporter:
         width: 86
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,85 +128,43 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level1_1
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 43
-        width: 12
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1b844f83a852d890800000000000000
-      internalID: -7434782575328720098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level1_2
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 43
-        width: 12
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2f6251afb90ee0d0800000000000000
-      internalID: -3391762750713467091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left gate
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 41
-        width: 5
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87ce2bc1e2963a4b0800000000000000
-      internalID: -5430381078907786120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Right Gate
+      name: Level1_0
       rect:
         serializedVersion: 2
         x: 123
-        y: 41
-        width: 5
-        height: 9
+        y: 42
+        width: 14
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d47a68f481a9f0a20800000000000000
-      internalID: 3030810503447750477
+      spriteID: 8cb247e4bdfdf1760800000000000000
+      internalID: 7430904043191675848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1_1
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 43
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82bc89e76fda9c6e0800000000000000
+      internalID: -1816729700469781720
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,8 @@ using FSM;
 using UnityEngine;
 
 abstract public class Enemy : MonoBehaviour, IRandom {
+    public event Action<Enemy> OnDie = delegate { };
+
     public int damage = 1;
     public int health = 1;
     public float speed = 1;
@@ -41,7 +43,13 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         stateMachine.ChangeState(nextState);
     }
 
-    protected virtual void OnGotHit(Weapon weapon) { }
+    protected void Die() {
+        OnDie(this);
+        gameObject.SetActive(false);
+        Destroy(gameObject, 1);
+    }
+
+    protected virtual void GotHit(Weapon weapon) { }
 
     private void OnTriggerEnter2D(Collider2D other) {
         Weapon weapon = other.gameObject.GetComponent<Weapon>();
@@ -49,7 +57,7 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         if (weapon != null) {
             blink.StartBlinking();
             hit.EmitParticles();
-            OnGotHit(weapon);
+            GotHit(weapon);
         }
         else if (player != null) {
             player.Damage(this);

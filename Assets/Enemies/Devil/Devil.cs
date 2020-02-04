@@ -57,6 +57,10 @@ public class Devil : Enemy {
             }
         }));
 
+        deadState.enterActions.Add(new FSM.Action(() => {
+            Die();
+        }));
+
         hurtState.enterActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
@@ -92,7 +96,7 @@ public class Devil : Enemy {
         stateMachine.ChangeState(idleState);
     }
 
-    protected override void OnGotHit(Weapon weapon) {
+    protected override void GotHit(Weapon weapon) {
         health -= 1;
 
         if (health <= 0) {

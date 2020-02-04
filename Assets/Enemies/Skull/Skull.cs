@@ -52,7 +52,7 @@ public class Skull : Enemy {
         }, idleState));
 
         deadState.enterActions.Add(new FSM.Action(() => {
-            Destroy(gameObject);
+            Die();
         }));
 
         hurtState.enterActions.Add(new FSM.Action(() => {
@@ -74,7 +74,7 @@ public class Skull : Enemy {
         stateMachine.Tick();
     }
 
-    protected override void OnGotHit(Weapon weapon) {
+    protected override void GotHit(Weapon weapon) {
         health -= 1;
 
         if (health <= 0) {
