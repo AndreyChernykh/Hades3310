@@ -89,7 +89,7 @@ public class SelectItem : MonoBehaviour {
         }
 
         if (selectedIndex == 0) {
-            Stats.permanentMaxHealth += 5;
+            Stats.permanentMaxHealth += 3;
             Stats.money -= price;
             maxHealth.SetText(Stats.permanentMaxHealth.ToString());
             maxHealthIncreased.SetActive(true);

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
         }
         else {
             sword.SetActive(false);
-            currentWeapon = sword.GetComponent<Bow>();
+            currentWeapon = bow.GetComponent<Bow>();
         }
 
         currentWeapon.SetAnimator(animator);

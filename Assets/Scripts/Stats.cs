@@ -10,18 +10,18 @@ public enum Weapons {
 public static class Stats {
     public static int attempts = 0;
 
-    public static int permanentMaxHealth = 50;
-    public static int attemptMaxHealth = 50;
-    public static int currentHealth = 50;
+    public static int permanentMaxHealth = 10;
+    public static int attemptMaxHealth = 10;
+    public static int currentHealth = 10;
 
     public static int permanentPower = 1;
     public static int currentPower = 1;
 
-    public static int money = 500;
+    public static int money = 0;
 
     public static bool isZeusBoonEnabled = false;
 
-    public static int currentLevel = 0;
+    public static int currentLevel = 1;
 
     public static Weapons selectedWeapon = Weapons.SWORD;
 }

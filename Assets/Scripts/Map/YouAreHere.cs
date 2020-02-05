@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YouAreHere : MonoBehaviour
-{
+public class YouAreHere : MonoBehaviour {
     public float transitionTime = 5;
     public float blinkTime = 0.5f;
     public Color color1;
@@ -14,8 +13,7 @@ public class YouAreHere : MonoBehaviour
     float timeBeforeNextBlink;
     SpriteRenderer sprite;
 
-    private void Start()
-    {
+    private void Start() {
         points.Add(new Vector2(25.1f, -20.9f));
         points.Add(new Vector2(2.2f, -20.6f));
         points.Add(new Vector2(-9, -20.6f));
@@ -40,10 +38,8 @@ public class YouAreHere : MonoBehaviour
         transform.position = new Vector3(initialPoint.x, initialPoint.y, 0);
     }
 
-    void Update()
-    {
-        if (timeBeforeNextBlink < 0)
-        {
+    void Update() {
+        if (timeBeforeNextBlink < 0) {
             sprite.color = sprite.color == color1 ? color2 : color1;
             timeBeforeNextBlink = blinkTime;
         }
@@ -52,10 +48,8 @@ public class YouAreHere : MonoBehaviour
     }
 
     [ContextMenu("MoveToNextPoint")]
-    public void MoveToNextPoint()
-    {
-        LeanTween.move(gameObject, points[Stats.currentLevel], transitionTime).setOnComplete(() =>
-        {
+    public void MoveToNextPoint() {
+        LeanTween.move(gameObject, points[Stats.currentLevel + 1], transitionTime).setOnComplete(() => {
             Stats.currentLevel += 1;
             LevelLoader.Instance.LoadNextLevel();
         });
