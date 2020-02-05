@@ -50,6 +50,6 @@ public class WeaponSelect : MonoBehaviour {
             Stats.selectedWeapon = optionTwo.weapon;
         }
 
-        LevelLoader.Instance.LoadLevel(SCENES.MAP);
+        LevelLoader.Instance.LoadLevel(LEVELS.MAP);
     }
 }

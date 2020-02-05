@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public struct EnemyMeta {
@@ -13,6 +14,8 @@ public struct EnemyMeta {
 }
 
 public class EnemySpawner : MonoBehaviour {
+    public UnityEvent OnAllEnemiesKilled;
+
     public List<float> xSpawnCoodr;
     public List<float> ySpawnCoord;
 
@@ -74,8 +77,7 @@ public class EnemySpawner : MonoBehaviour {
         enemy.OnDie -= UnregisterEnemy;
 
         if (spawnedEnemies.Count <= 0) {
-            // TODO: Open the gate!
-            Debug.Log("Victory!");
+            OnAllEnemiesKilled.Invoke();
         }
     }
 }

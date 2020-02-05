@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SCENES {
+public enum LEVELS {
     TITLE,
     GAME_OVER,
     VICTORY,
@@ -46,7 +46,7 @@ public class LevelLoader : MonoBehaviour {
         StartCoroutine(LoadLevelTask(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    public void LoadLevel(SCENES scene) {
+    public void LoadLevel(LEVELS scene) {
         StartCoroutine(LoadLevelTask((int) scene));
     }
 

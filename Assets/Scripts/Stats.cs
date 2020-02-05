@@ -19,9 +19,15 @@ public static class Stats {
 
     public static int money = 0;
 
-    public static bool isZeusBoonEnabled = false;
-
-    public static int currentLevel = 1;
+    public static int currentLevel = 0;
 
     public static Weapons selectedWeapon = Weapons.SWORD;
+
+    public static void ResetStats() {
+        attempts += 1;
+        attemptMaxHealth = permanentMaxHealth;
+        currentHealth = permanentMaxHealth;
+        currentPower = permanentPower;
+        currentLevel = 0;
+    }
 }

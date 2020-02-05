@@ -60,7 +60,7 @@ public class Blessings : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) {
             if (message.activeSelf) {
                 inputDisabled = true;
-                LevelLoader.Instance.LoadLevel(SCENES.MAP);
+                LevelLoader.Instance.LoadLevel(LEVELS.MAP);
             }
             else {
                 ApplyBlessing(slotOne.pointer.activeSelf ? blessingOne.god : blessingTwo.god);

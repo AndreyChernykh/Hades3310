@@ -101,5 +101,10 @@ public class Player : MonoBehaviour {
         Debug.Log("onTrigget");
         Stats.currentHealth -= enemy.damage;
         blink.StartBlinking();
+
+        if (Stats.currentHealth <= 0) {
+            LevelLoader.Instance.LoadLevel(LEVELS.GAME_OVER);
+            gameObject.SetActive(false);
+        }
     }
 }

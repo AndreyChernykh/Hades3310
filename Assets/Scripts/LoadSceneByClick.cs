@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadSceneByClick : MonoBehaviour {
-    public SCENES scene;
+    public LEVELS scene;
 
     bool disableInput;
 

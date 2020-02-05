@@ -76,7 +76,7 @@ public class SelectItem : MonoBehaviour {
             // Exit
             inputDisabled = true;
 
-            LevelLoader.Instance.LoadLevel(SCENES.WEAPON_SELECT);
+            LevelLoader.Instance.LoadLevel(LEVELS.WEAPON_SELECT);
 
             return;
         }
