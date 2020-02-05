@@ -24,7 +24,6 @@ public class Devil : Enemy {
         Init();
 
         idleState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("idle");
             waitForChaseCoroutine = StartCoroutine(Wait(rng.Next((int) waitTimeMs.x, (int) waitTimeMs.y) / 1000, chaseState));
         }));
         idleState.exitActions.Add(new FSM.Action(() => {
@@ -34,7 +33,6 @@ public class Devil : Enemy {
         }));
 
         chaseState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("chaseState");
             chaseTimeLeft = chaseTime;
             chaseCoroutine = StartCoroutine(Chase());
         }));
@@ -48,7 +46,6 @@ public class Devil : Enemy {
         }));
 
         attackState.enterActions.Add(new FSM.Action(() => {
-            Debug.Log("Attack");
             Attack();
         }));
         attackState.exitActions.Add(new FSM.Action(() => {
@@ -85,7 +82,6 @@ public class Devil : Enemy {
     }
 
     protected IEnumerator Chase() {
-        Debug.Log(chaseTimeLeft);
         while (chaseTimeLeft >= 0.0f) {
             chaseTimeLeft -= Time.deltaTime;
 
@@ -96,8 +92,8 @@ public class Devil : Enemy {
         stateMachine.ChangeState(idleState);
     }
 
-    protected override void GotHit(Weapon weapon) {
-        health -= 1;
+    protected override void GotHit() {
+        health -= Stats.currentPower;
 
         if (health <= 0) {
             stateMachine.ChangeState(deadState);

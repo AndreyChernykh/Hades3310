@@ -74,8 +74,8 @@ public class Skull : Enemy {
         stateMachine.Tick();
     }
 
-    protected override void GotHit(Weapon weapon) {
-        health -= 1;
+    protected override void GotHit() {
+        health -= Stats.currentPower;
 
         if (health <= 0) {
             stateMachine.ChangeState(deadState);

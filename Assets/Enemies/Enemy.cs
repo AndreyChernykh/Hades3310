@@ -50,18 +50,19 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         Stats.money += 1;
     }
 
-    protected virtual void GotHit(Weapon weapon) { }
+    protected virtual void GotHit() { }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Weapon weapon = other.gameObject.GetComponent<Weapon>();
         Player player = other.gameObject.GetComponent<Player>();
-        if (weapon != null) {
-            blink.StartBlinking();
-            hit.EmitParticles();
-            GotHit(weapon);
-        }
-        else if (player != null) {
+
+        if (player != null) {
             player.Damage(this);
         }
+    }
+
+    public void Hit() {
+        blink.StartBlinking();
+        hit.EmitParticles();
+        GotHit();
     }
 }

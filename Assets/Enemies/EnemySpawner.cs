@@ -7,10 +7,10 @@ using UnityEngine.Events;
 [System.Serializable]
 public struct EnemyMeta {
     [SerializeField]
-    public GameObject enemyPrefab;
+    public int enemyCount;
 
     [SerializeField]
-    public int spawnWeight;
+    public List<int> spawnWeights;
 }
 
 public class EnemySpawner : MonoBehaviour {
@@ -19,52 +19,53 @@ public class EnemySpawner : MonoBehaviour {
     public List<float> xSpawnCoodr;
     public List<float> ySpawnCoord;
 
-    public List<EnemyMeta> enemies;
-
-    public int enemiesCount;
-    public int seed;
-    public int maxEnemySeed;
+    public List<EnemyMeta> enemiesPerLevel;
+    public List<GameObject> enemies;
 
     public Player player;
 
     private int combinedWeight;
     private System.Random rng;
+    EnemyMeta enemySpawnPool;
 
     private List<Enemy> spawnedEnemies = new List<Enemy>();
 
     void Start() {
-        rng = new System.Random(seed);
+        rng = new System.Random(Mathf.RoundToInt(Time.time));
 
-        for (int i = 0; i < enemiesCount; i++) {
-            SpawnEnemy(GetEnemyToSpawn());
+        enemySpawnPool = enemiesPerLevel[Stats.currentLevel];
+
+        for (int i = 0; i < enemySpawnPool.enemyCount; i++) {
+            SpawnEnemy(GetEnemyToSpawn(), i);
         }
     }
 
-    EnemyMeta GetEnemyToSpawn() {
-        foreach (EnemyMeta m in enemies) {
-            combinedWeight += m.spawnWeight;
+    GameObject GetEnemyToSpawn() {
+        foreach (int weight in enemySpawnPool.spawnWeights) {
+            combinedWeight += weight;
         }
 
         float rngWeight = rng.Next(0, combinedWeight);
         for (int i = 0; i < enemies.Count; i++) {
-            EnemyMeta meta = enemies[i];
-            if (meta.spawnWeight < 0) continue;
+            GameObject enemyPrefab = enemies[i];
+            int weight = enemySpawnPool.spawnWeights[i];
+            if (weight < 0) continue;
 
-            if (rngWeight < meta.spawnWeight) {
-                return meta;
+            if (rngWeight < weight) {
+                return enemyPrefab;
             }
-            rngWeight -= meta.spawnWeight;
+            rngWeight -= weight;
         }
 
         Debug.LogWarning("Spawn a default enemy");
         return enemies[0];
     }
 
-    void SpawnEnemy(EnemyMeta meta) {
+    void SpawnEnemy(GameObject enemyPrefab, int index) {
         Vector2 spawnPoint = new Vector2(xSpawnCoodr[rng.Next(0, xSpawnCoodr.Count)], ySpawnCoord[rng.Next(0, ySpawnCoord.Count)]);
-        GameObject enemyObj = Instantiate(meta.enemyPrefab, spawnPoint, Quaternion.identity);
+        GameObject enemyObj = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
         Enemy enemy = enemyObj.GetComponent<Enemy>();
-        enemy.SetSeed(rng.Next(0, maxEnemySeed));
+        enemy.SetSeed(rng.Next(0, Mathf.RoundToInt(Time.time) + index * 100));
         enemy.SetPlayer(player);
 
         spawnedEnemies.Add(enemy);

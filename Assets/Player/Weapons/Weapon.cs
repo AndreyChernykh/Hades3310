@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
     protected Animator animator;
-    public int power;
 
-    public virtual void Attack() { }
+    public virtual void Attack(float direction) { }
     public virtual void SetAnimator(Animator animator) { }
 }

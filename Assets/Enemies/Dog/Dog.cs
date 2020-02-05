@@ -80,7 +80,6 @@ public class Dog : Enemy {
     }
 
     protected IEnumerator Chase() {
-        Debug.Log(chaseTimeLeft);
         while (chaseTimeLeft >= 0.0f) {
             chaseTimeLeft -= Time.deltaTime;
 
@@ -91,8 +90,8 @@ public class Dog : Enemy {
         stateMachine.ChangeState(idleState);
     }
 
-    protected override void GotHit(Weapon weapon) {
-        health -= 1;
+    protected override void GotHit() {
+        health -= Stats.currentPower;
 
         if (health <= 0) {
             stateMachine.ChangeState(deadState);

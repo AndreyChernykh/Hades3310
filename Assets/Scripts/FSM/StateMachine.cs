@@ -2,30 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FSM
-{
-    public class StateMachine
-    {
+namespace FSM {
+    public class StateMachine {
         IState currentState;
 
-        public void ChangeState(IState nextState)
-        {
-            // Debug.Log($"Enter state: {nextState.GetName()}");
+        public void ChangeState(IState nextState) {
             currentState?.Exit();
             currentState = nextState;
             currentState.Enter();
         }
 
-        public void Tick()
-        {
+        public void Tick() {
             Transition transition = currentState?.VerifyTransitions();
-            if (transition != null)
-            {
+            if (transition != null) {
                 transition.Fire();
                 ChangeState(transition.nextState);
             }
-            else
-            {
+            else {
                 currentState?.Stay();
             }
         }

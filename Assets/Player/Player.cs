@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 
     public float speed = 1;
     public float dashSpeed = 10;
+    public float attackTimeout = 0.5f;
+    public float timeBeforeCanAttack;
 
     bool isDash;
     bool isFacingRight = false;
@@ -40,6 +42,8 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
+        timeBeforeCanAttack -= Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.G)) {
             isDash = true;
         }
@@ -61,7 +65,10 @@ public class Player : MonoBehaviour {
     Coroutine musicPaused;
 
     private void Attack() {
-        currentWeapon.Attack();
+        if (timeBeforeCanAttack <= 0) {
+            timeBeforeCanAttack = attackTimeout;
+            currentWeapon.Attack(transform.localScale.x * -1);
+        }
     }
 
     private void Move(Vector2 input) {
@@ -98,7 +105,6 @@ public class Player : MonoBehaviour {
     }
 
     public void Damage(Enemy enemy) {
-        Debug.Log("onTrigget");
         Stats.currentHealth -= enemy.damage;
         blink.StartBlinking();
 

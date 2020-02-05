@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class Arrow : MonoBehaviour {
+    float direction;
+    public float speed;
+
+    public void SetDirection(float direction) {
+        this.direction = direction;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        transform.Translate(new Vector3(direction * speed, 0, 0));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Enemy enemy = other.gameObject.GetComponent<Enemy>();
+
+        if (enemy != null) {
+            enemy.Hit();
+        }
+
+        Destroy(gameObject);
     }
 }

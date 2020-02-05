@@ -123,13 +123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 5
-  speed: 0.5
+  speed: 0.3
   customSeed: 0
   blink: {fileID: -12607399495873775}
   hit: {fileID: -4368650270881829617}
   xRange: {x: -35, y: 35}
   yRange: {x: -20, y: 15}
-  waitTimeMs: {x: 1000, y: 3000}
+  waitTimeMs: {x: 1000, y: 2200}
 --- !u!50 &1642228572014951203
 Rigidbody2D:
   serializedVersion: 4
