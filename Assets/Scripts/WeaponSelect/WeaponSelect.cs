@@ -13,7 +13,6 @@ public class WeaponSelect : MonoBehaviour {
     public WeaponOption optionTwo;
 
     bool inputDisabled;
-    int selectedIndex = 0;
 
     void Start() {
         optionOne.pointer.SetActive(true);

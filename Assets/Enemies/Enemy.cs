@@ -47,6 +47,7 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         OnDie(this);
         gameObject.SetActive(false);
         Destroy(gameObject, 1);
+        Stats.money += 1;
     }
 
     protected virtual void GotHit(Weapon weapon) { }

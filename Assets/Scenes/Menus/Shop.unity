@@ -1529,7 +1529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945929280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.358345, y: -23.71, z: 34.109375}
+  m_LocalPosition: {x: -2.358345, y: -22.5, z: 34.109375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1206475883}
@@ -1612,7 +1612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008036957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.358345, y: -23.71, z: 34.109375}
+  m_LocalPosition: {x: -2.358345, y: -23.1, z: 34.109375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2074366008}
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Max health is
+  m_text: 'Max health
 
     increased to'
   m_isRightToLeft: 0
@@ -1776,7 +1776,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.128
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 14
+  m_firstOverflowCharacterIndex: 11
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1800,10 +1800,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 6.5059843, z: -33.155754, w: 4.5116825}
   m_textInfo:
     textComponent: {fileID: 1093295876}
-    characterCount: 26
+    characterCount: 23
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -2674,7 +2674,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Damage is \nincreased to"
+  m_text: 'Damage
+
+    increased to'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5cbad638d8192504b87e47907dd76994, type: 2}
   m_sharedMaterial: {fileID: 7227020081066685677, guid: 5cbad638d8192504b87e47907dd76994,
@@ -2720,7 +2722,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.128
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 11
+  m_firstOverflowCharacterIndex: 7
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2744,10 +2746,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 6.5059843, z: -33.155754, w: 4.5116825}
   m_textInfo:
     textComponent: {fileID: 2074366009}
-    characterCount: 23
+    characterCount: 19
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -2879,7 +2881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128347899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.358345, y: -23.71, z: 34.109375}
+  m_LocalPosition: {x: -2.358345, y: -22.5, z: 34.109375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1093295875}
