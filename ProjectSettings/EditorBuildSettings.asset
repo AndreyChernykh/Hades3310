@@ -6,9 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Titles/TitleScreen.unity
+    guid: 42b6cd3c2a87bee45b5fc1aaffbad0cb
+  - enabled: 1
+    path: Assets/Scenes/Titles/GameOver.unity
+    guid: 8ae15e1bd790f3649b2216a8eeefebb8
+  - enabled: 1
+    path: Assets/Scenes/Titles/Victory.unity
+    guid: fe859d43f60600f4894bd0722483defa
+  - enabled: 1
+    path: Assets/Scenes/Titles/TryAgain.unity
+    guid: ec3357f314b6c434396b30b8d00766ab
+  - enabled: 1
+    path: Assets/Scenes/Menus/WeaponSelect.unity
+    guid: 0c69aaf6da9453b44b0961059a13540d
+  - enabled: 1
+    path: Assets/Scenes/Menus/Blessing.unity
+    guid: be03fa98431fcaf47950f6c57dbd1814
+  - enabled: 1
+    path: Assets/Scenes/Menus/Shop.unity
+    guid: f5cb0f5a2fa515741a0c47244f33c481
+  - enabled: 1
     path: Assets/Scenes/Menus/Map.unity
     guid: ffe8444d9e8805c4c94d32a426899fae
   - enabled: 1
     path: Assets/Scenes/Attempt.unity
     guid: e9a1203f969e7d440a11fc7c464fd83d
+  - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: bea4323d2a5a003449482b38a4be22e5
   m_configObjects: {}

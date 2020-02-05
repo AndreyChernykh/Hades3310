@@ -14,10 +14,10 @@ public static class Stats {
     public static int attemptMaxHealth = 50;
     public static int currentHealth = 50;
 
-    public static int permanentMaxPower = 1;
+    public static int permanentPower = 1;
     public static int currentPower = 1;
 
-    public static int money = 0;
+    public static int money = 500;
 
     public static bool isZeusBoonEnabled = false;
 

@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum SCENES {
+    TITLE,
+    GAME_OVER,
+    VICTORY,
+    TRY_AGAIN,
+    WEAPON_SELECT,
+    BLESSINGS,
+    SHOP,
+    MAP,
+    ATTEMPT,
+    BOSS_FIGHT
+}
 
-public class LevelLoader : MonoBehaviour
-{
+public class LevelLoader : MonoBehaviour {
     [SerializeField]
     private float transitionTime = 1f;
 
@@ -15,27 +26,24 @@ public class LevelLoader : MonoBehaviour
 
     public static LevelLoader Instance { get { return _instance; } }
 
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
+    private void Awake() {
+        if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
         }
-        else
-        {
+        else {
             _instance = this;
         }
     }
 
-    [ContextMenu("LoadNextLevel")]
-    public void LoadNextLevel()
-    {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    public void LoadNextLevel() {
+        StartCoroutine(LoadLevelTask(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    public IEnumerator LoadLevel(int levelIndex)
-    {
+    public void LoadLevel(SCENES scene) {
+        StartCoroutine(LoadLevelTask((int) scene));
+    }
+
+    private IEnumerator LoadLevelTask(int levelIndex) {
         yield return new WaitForSecondsRealtime(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
