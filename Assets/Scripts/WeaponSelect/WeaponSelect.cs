@@ -15,6 +15,8 @@ public class WeaponSelect : MonoBehaviour {
     bool inputDisabled;
 
     void Start() {
+        Stats.ResetStats();
+
         optionOne.pointer.SetActive(true);
         optionTwo.pointer.SetActive(false);
     }
@@ -50,6 +52,6 @@ public class WeaponSelect : MonoBehaviour {
             Stats.selectedWeapon = optionTwo.weapon;
         }
 
-        LevelLoader.Instance.LoadLevel(LEVELS.MAP);
+        LevelLoader.Instance.LoadLevel(LEVELS.SHOP);
     }
 }

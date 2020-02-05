@@ -13,7 +13,17 @@ public class Gates : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<Player>() != null) {
-            LevelLoader.Instance.LoadLevel(LEVELS.MAP);
+            if (Stats.currentLevel == 12) {
+                LevelLoader.Instance.LoadLevel(LEVELS.BOSS_FIGHT);
+                return;
+            }
+
+            if (Stats.currentLevel == 4 || Stats.currentLevel == 8 || Stats.currentLevel == 12) {
+                LevelLoader.Instance.LoadLevel(LEVELS.BLESSINGS);
+            }
+            else {
+                LevelLoader.Instance.LoadLevel(LEVELS.MAP);
+            }
         }
     }
 }

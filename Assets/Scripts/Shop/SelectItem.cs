@@ -76,7 +76,7 @@ public class SelectItem : MonoBehaviour {
             // Exit
             inputDisabled = true;
 
-            LevelLoader.Instance.LoadLevel(LEVELS.WEAPON_SELECT);
+            LevelLoader.Instance.LoadLevel(LEVELS.MAP);
 
             return;
         }
@@ -90,6 +90,8 @@ public class SelectItem : MonoBehaviour {
 
         if (selectedIndex == 0) {
             Stats.permanentMaxHealth += 3;
+            Stats.attemptMaxHealth = Stats.permanentMaxHealth;
+            Stats.currentHealth = Stats.permanentMaxHealth;
             Stats.money -= price;
             maxHealth.SetText(Stats.permanentMaxHealth.ToString());
             maxHealthIncreased.SetActive(true);
@@ -97,6 +99,7 @@ public class SelectItem : MonoBehaviour {
         else if (selectedIndex == 1) {
             damageIncreased.SetActive(true);
             Stats.permanentPower += 1;
+            Stats.currentPower = Stats.permanentPower;
             Stats.money -= price;
             damage.SetText(Stats.permanentPower.ToString());
         }
