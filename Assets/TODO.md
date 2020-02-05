@@ -1,6 +1,4 @@
-﻿- Healthbar
-- Dog attack (Chase)
-- Demon attack (shoot projectiles) 
+﻿- Demon attack (shoot projectiles) 
 - Level generator 
 - Gods blessings: Zeus (random lightning), Dionysus (+restore life and +max life a little) Ares (+max power), Poseidon (+money), Aphrodite (+ max life)
 - Hades
