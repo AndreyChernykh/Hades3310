@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6196391849698363715}
   - component: {fileID: 6196391849698363716}
-  - component: {fileID: 4736384367018852451}
   m_Layer: 0
   m_Name: LoadNextSceneByClick
   m_TagString: Untagged
@@ -44,17 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1142d266f1aad234eaf48f0958bbdf97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 4
---- !u!114 &4736384367018852451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6196391849698363714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec3f1a88c4198549af5ff6e23db6d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitionTime: 1
+  scene: 3

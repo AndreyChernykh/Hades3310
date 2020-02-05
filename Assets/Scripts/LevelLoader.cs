@@ -27,12 +27,19 @@ public class LevelLoader : MonoBehaviour {
     public static LevelLoader Instance { get { return _instance; } }
 
     private void Awake() {
+
         if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
         }
         else {
             _instance = this;
         }
+    }
+
+    Animator animator;
+
+    private void Start() {
+        animator = GetComponent<Animator>();
     }
 
     public void LoadNextLevel() {
@@ -44,6 +51,7 @@ public class LevelLoader : MonoBehaviour {
     }
 
     private IEnumerator LoadLevelTask(int levelIndex) {
+        animator.Play("LevelTransition");
         yield return new WaitForSecondsRealtime(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
