@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Price : MonoBehaviour {
-
-    public TMPro.TextMeshPro text;
     public int price;
+
+    [SerializeField]
+    private TMPro.TextMeshPro text;
 
     void Start() {
         text.SetText(price.ToString());

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gates : MonoBehaviour {
-    public GameObject closedGates;
-    public GameObject openedGates;
+    [SerializeField]
+    private GameObject closedGates;
+    [SerializeField]
+    private GameObject openedGates;
 
     public void Open() {
         closedGates.SetActive(false);
@@ -13,12 +15,12 @@ public class Gates : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<Player>() != null) {
-            if (Stats.currentLevel == 12) {
+            if (Stats.currentRoom + 1 == Stats.bossRoom) {
                 LevelLoader.Instance.LoadLevel(LEVELS.BOSS_FIGHT);
                 return;
             }
 
-            if (Stats.currentLevel == 4 || Stats.currentLevel == 8 || Stats.currentLevel == 12) {
+            if (Stats.currentRoom == 4 || Stats.currentRoom == 8 || Stats.currentRoom == 12) {
                 LevelLoader.Instance.LoadLevel(LEVELS.BLESSINGS);
             }
             else {

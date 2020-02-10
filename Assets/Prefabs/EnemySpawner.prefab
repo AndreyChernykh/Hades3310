@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &644872622951865275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644872622951865273}
+  - component: {fileID: 644872622951865274}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644872622951865273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644872622951865275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644872622951865274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644872622951865275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31abb35f47b3aa34484edc9f9d4c0684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAllEnemiesKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  xSpawnCoodr:
+  - 35
+  - -35
+  ySpawnCoord:
+  - 15
+  - 8
+  - 2
+  - -6
+  - -14
+  - -20
+  enemiesPerLevel:
+  - enemyCount: 1
+    spawnWeights: 010000000000000000000000
+  - enemyCount: 3
+    spawnWeights: 010000000100000000000000
+  - enemyCount: 4
+    spawnWeights: 020000000100000000000000
+  - enemyCount: 5
+    spawnWeights: 030000000200000001000000
+  - enemyCount: 5
+    spawnWeights: 010000000000000002000000
+  - enemyCount: 6
+    spawnWeights: 010000000100000001000000
+  - enemyCount: 7
+    spawnWeights: 020000000100000002000000
+  - enemyCount: 8
+    spawnWeights: 020000000100000003000000
+  - enemyCount: 9
+    spawnWeights: 030000000200000002000000
+  - enemyCount: 10
+    spawnWeights: 050000000200000004000000
+  - enemyCount: 10
+    spawnWeights: 040000000200000006000000
+  - enemyCount: 10
+    spawnWeights: 010000000100000006000000
+  - enemyCount: 1
+    spawnWeights: 010000000100000006000000
+  enemies:
+  - {fileID: 1642228572014951210, guid: 3d71c1d5fd9dbdc4fa4a11538ce4b47c, type: 3}
+  - {fileID: 5869202309287652494, guid: 441433a46d9e0f947948c65302a3c16c, type: 3}
+  - {fileID: 5111691877689132362, guid: 8d02eddf91d10394487e5332caddafd4, type: 3}
+  player: {fileID: 0}

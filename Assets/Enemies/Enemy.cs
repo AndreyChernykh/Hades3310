@@ -4,22 +4,30 @@ using System.Collections.Generic;
 using FSM;
 using UnityEngine;
 
+[RequireComponent(typeof(Blink)), RequireComponent(typeof(Hit))]
 abstract public class Enemy : MonoBehaviour, IRandom {
     public event Action<Enemy> OnDie = delegate { };
 
+    [SerializeField]
     public int damage = 1;
+    [SerializeField]
     public int health = 1;
+    [SerializeField]
     public float speed = 1;
 
-    public int customSeed;
-    int seed;
+    private int seed;
 
-    public Blink blink;
-    public Hit hit;
+    private Blink blink;
+    private Hit hit;
 
     protected System.Random rng;
     protected StateMachine stateMachine;
     protected Player player;
+
+    private void Awake() {
+        blink = GetComponent<Blink>();
+        hit = GetComponent<Hit>();
+    }
 
     public void SetSeed(int seed) {
         this.seed = seed;
@@ -29,11 +37,7 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         this.player = player;
     }
 
-    protected void Init() {
-        if (customSeed > 0) {
-            seed = customSeed;
-        }
-
+    protected void InitEnemy() {
         rng = new System.Random(seed);
         stateMachine = new StateMachine();
     }
@@ -56,7 +60,7 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         Player player = other.gameObject.GetComponent<Player>();
 
         if (player != null) {
-            player.Damage(this);
+            player.GotHitBy(this);
         }
     }
 

@@ -22,27 +22,32 @@ public struct BlessingSlot {
 }
 
 public class Blessings : MonoBehaviour {
-    public BlessingSlot slotOne;
-    public BlessingSlot slotTwo;
+    [SerializeField]
+    private BlessingSlot slotOne;
+    [SerializeField]
+    private BlessingSlot slotTwo;
 
-    BlessingOption blessingOne;
-    BlessingOption blessingTwo;
+    private BlessingOption blessingOne;
+    private BlessingOption blessingTwo;
 
-    public GameObject message;
-    public TMPro.TextMeshPro text;
+    [SerializeField]
+    private GameObject message;
+    [SerializeField]
+    private TMPro.TextMeshPro text;
 
-    public List<BlessingOption> options = new List<BlessingOption>();
+    [SerializeField]
+    private List<BlessingOption> options = new List<BlessingOption>();
 
-    bool inputDisabled;
+    private bool inputDisabled;
 
-    void Start() {
+    private void Start() {
         slotOne.pointer.SetActive(true);
         slotTwo.pointer.SetActive(false);
 
         PickBlessings();
     }
 
-    void Update() {
+    private void Update() {
         if (inputDisabled) {
             return;
         }
@@ -69,7 +74,7 @@ public class Blessings : MonoBehaviour {
 
     }
 
-    void PickBlessings() {
+    private void PickBlessings() {
         System.Random rng = new System.Random(System.DateTime.Now.Millisecond);
 
         blessingOne = options[rng.Next(0, 2)];
@@ -79,7 +84,7 @@ public class Blessings : MonoBehaviour {
         slotTwo.slot.GetComponent<SpriteRenderer>().sprite = blessingTwo.sprite;
     }
 
-    void ApplyBlessing(GOD blessing) {
+    private void ApplyBlessing(GOD blessing) {
 
         message.SetActive(true);
 

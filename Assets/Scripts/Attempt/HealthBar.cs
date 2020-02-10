@@ -4,13 +4,13 @@ using TMPro;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour {
-    TMPro.TextMeshPro text;
+    private TMPro.TextMeshPro text;
 
     private void Awake() {
         text = GetComponent<TMPro.TextMeshPro>();
     }
 
-    void Update() {
+    private void Update() {
         text.SetText($"{Stats.currentHealth.ToString()}/{Stats.attemptMaxHealth.ToString()}");
     }
 }

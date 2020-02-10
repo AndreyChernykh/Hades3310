@@ -5,23 +5,25 @@ using FSM;
 using UnityEngine;
 
 public class Devil : Enemy {
-    public Vector2 waitTimeMs;
-    public float chaseTime;
-    float chaseTimeLeft;
+    [SerializeField]
+    private Vector2 waitTimeMs;
+    [SerializeField]
+    private float chaseTime;
+    private float chaseTimeLeft;
 
-    State idleState = new State("idle");
-    State attackState = new State("attack");
-    State chaseState = new State("chase");
-    State hurtState = new State("hurt");
-    State deadState = new State("dead");
+    private State idleState = new State("idle");
+    private State attackState = new State("attack");
+    private State chaseState = new State("chase");
+    private State hurtState = new State("hurt");
+    private State deadState = new State("dead");
 
-    Coroutine waitAfterAttack;
-    Coroutine waitForChaseCoroutine;
-    Coroutine chaseCoroutine;
-    Coroutine waitStunned;
+    private Coroutine waitAfterAttack;
+    private Coroutine waitForChaseCoroutine;
+    private Coroutine chaseCoroutine;
+    private Coroutine waitStunned;
 
     private void Start() {
-        Init();
+        InitEnemy();
 
         idleState.enterActions.Add(new FSM.Action(() => {
             waitForChaseCoroutine = StartCoroutine(Wait(rng.Next((int) waitTimeMs.x, (int) waitTimeMs.y) / 1000, chaseState));

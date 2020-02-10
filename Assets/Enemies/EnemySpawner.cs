@@ -14,33 +14,39 @@ public struct EnemyMeta {
 }
 
 public class EnemySpawner : MonoBehaviour {
-    public UnityEvent OnAllEnemiesKilled;
+    [SerializeField]
+    private UnityEvent OnAllEnemiesKilled;
 
-    public List<float> xSpawnCoodr;
-    public List<float> ySpawnCoord;
+    [SerializeField]
+    private List<float> xSpawnCoodr;
+    [SerializeField]
+    private List<float> ySpawnCoord;
 
-    public List<EnemyMeta> enemiesPerLevel;
-    public List<GameObject> enemies;
+    [SerializeField]
+    private List<EnemyMeta> enemiesPerLevel;
+    [SerializeField]
+    private List<GameObject> enemies;
 
-    public Player player;
+    [SerializeField]
+    private Player player;
 
     private int combinedWeight;
     private System.Random rng;
-    EnemyMeta enemySpawnPool;
+    private EnemyMeta enemySpawnPool;
 
     private List<Enemy> spawnedEnemies = new List<Enemy>();
 
-    void Start() {
+    private void Start() {
         rng = new System.Random(Mathf.RoundToInt(Time.time));
 
-        enemySpawnPool = enemiesPerLevel[Stats.currentLevel];
+        enemySpawnPool = enemiesPerLevel[Stats.currentRoom];
 
         for (int i = 0; i < enemySpawnPool.enemyCount; i++) {
             SpawnEnemy(GetEnemyToSpawn(), i);
         }
     }
 
-    GameObject GetEnemyToSpawn() {
+    private GameObject GetEnemyToSpawn() {
         foreach (int weight in enemySpawnPool.spawnWeights) {
             combinedWeight += weight;
         }
@@ -56,8 +62,9 @@ public class EnemySpawner : MonoBehaviour {
             }
             rngWeight -= weight;
         }
-
+#if UNITY_EDITOR
         Debug.LogWarning("Spawn a default enemy");
+#endif
         return enemies[0];
     }
 

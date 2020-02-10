@@ -9,21 +9,27 @@ public struct ShopOption {
 }
 
 public class SelectItem : MonoBehaviour {
-    public List<ShopOption> options = new List<ShopOption>();
-    public GameObject notEnoughMoney;
-    public GameObject maxHealthIncreased;
-    public GameObject damageIncreased;
-    public TMPro.TextMeshPro maxHealth;
-    public TMPro.TextMeshPro damage;
+    [SerializeField]
+    private List<ShopOption> options = new List<ShopOption>();
+    [SerializeField]
+    private GameObject notEnoughMoney;
+    [SerializeField]
+    private GameObject maxHealthIncreased;
+    [SerializeField]
+    private GameObject damageIncreased;
+    [SerializeField]
+    private TMPro.TextMeshPro maxHealth;
+    [SerializeField]
+    private TMPro.TextMeshPro damage;
 
-    bool inputDisabled;
-    int selectedIndex = 0;
+    private bool inputDisabled;
+    private int selectedIndex = 0;
 
-    void Start() {
+    private void Start() {
         UpdatePointers();
     }
 
-    void Update() {
+    private void Update() {
         if (inputDisabled) {
             return;
         }
@@ -60,7 +66,7 @@ public class SelectItem : MonoBehaviour {
 
     }
 
-    void UpdatePointers() {
+    private void UpdatePointers() {
         for (int i = 0; i < options.Count; i++) {
             if (i != selectedIndex) {
                 options[i].pointer.SetActive(false);
@@ -71,12 +77,9 @@ public class SelectItem : MonoBehaviour {
         }
     }
 
-    void PickItem() {
+    private void PickItem() {
         if (selectedIndex == options.Count - 1) {
-            // Exit
-            inputDisabled = true;
-
-            LevelLoader.Instance.LoadLevel(LEVELS.MAP);
+            ExitShop();
 
             return;
         }
@@ -103,5 +106,11 @@ public class SelectItem : MonoBehaviour {
             Stats.money -= price;
             damage.SetText(Stats.permanentPower.ToString());
         }
+    }
+
+    private void ExitShop() {
+        inputDisabled = true;
+
+        LevelLoader.Instance.LoadLevel(LEVELS.MAP);
     }
 }

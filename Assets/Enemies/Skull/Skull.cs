@@ -5,22 +5,25 @@ using FSM;
 using UnityEngine;
 
 public class Skull : Enemy {
-    public Vector2 xRange;
-    public Vector2 yRange;
-    public Vector2 waitTimeMs;
+    [SerializeField]
+    private Vector2 xRange;
+    [SerializeField]
+    private Vector2 yRange;
+    [SerializeField]
+    private Vector2 waitTimeMs;
 
-    State idleState = new State("idle");
-    State walkState = new State("walk");
-    State attackState = new State("attack");
-    State hurtState = new State("hurt");
-    State deadState = new State("dead");
+    private State idleState = new State("idle");
+    private State walkState = new State("walk");
+    private State attackState = new State("attack");
+    private State hurtState = new State("hurt");
+    private State deadState = new State("dead");
 
-    Coroutine waitForAttack;
-    Coroutine waitStunned;
-    bool isHorizontalMove = false;
+    private Coroutine waitForAttack;
+    private Coroutine waitStunned;
+    private bool isHorizontalMove = false;
 
     private void Start() {
-        Init();
+        InitEnemy();
 
         Vector2 nextPosition = transform.position;
 

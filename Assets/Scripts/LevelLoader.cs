@@ -47,7 +47,7 @@ public class LevelLoader : MonoBehaviour {
     }
 
     public void LoadLevel(LEVELS scene) {
-        if (scene == LEVELS.ATTEMPT && Stats.currentLevel == 11) {
+        if (scene == LEVELS.ATTEMPT && Stats.currentRoom == 11) {
             StartCoroutine(LoadLevelTask((int) LEVELS.BOSS_FIGHT));
         }
         else {

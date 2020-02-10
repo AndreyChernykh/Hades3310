@@ -25,25 +25,26 @@ namespace FSM {
 		}
 
 		public void Enter() {
-			foreach (Action action in enterActions) {
-				action.Act();
-			}
+			ExecuteActions(enterActions);
 		}
 
 		public void Stay() {
-			foreach (Action action in stayActions) {
-				action.Act();
-			}
+			ExecuteActions(stayActions);
 		}
 
 		public void Exit() {
-			foreach (Action action in exitActions) {
-				action.Act();
+			ExecuteActions(exitActions);
+		}
+
+		private void ExecuteActions(List<Action> actions) {
+			for (int i = 0; i < actions.Count; i++) {
+				actions[i].Act();
 			}
 		}
 
 		public Transition VerifyTransitions() {
-			foreach (Transition t in transitions) {
+			for (int i = 0; i < transitions.Count; i++) {
+				Transition t = transitions[i];
 				bool decisionSucceded = t.condition();
 				if (decisionSucceded) {
 					return t;
@@ -52,6 +53,5 @@ namespace FSM {
 
 			return null;
 		}
-
 	}
 }

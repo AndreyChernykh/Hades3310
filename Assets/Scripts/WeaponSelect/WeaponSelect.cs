@@ -9,19 +9,21 @@ public struct WeaponOption {
 }
 
 public class WeaponSelect : MonoBehaviour {
-    public WeaponOption optionOne;
-    public WeaponOption optionTwo;
+    [SerializeField]
+    private WeaponOption optionOne;
+    [SerializeField]
+    private WeaponOption optionTwo;
 
-    bool inputDisabled;
+    private bool inputDisabled;
 
-    void Start() {
+    private void Start() {
         Stats.ResetStats();
 
         optionOne.pointer.SetActive(true);
         optionTwo.pointer.SetActive(false);
     }
 
-    void Update() {
+    private void Update() {
         if (inputDisabled) {
             return;
         }
@@ -42,7 +44,7 @@ public class WeaponSelect : MonoBehaviour {
 
     }
 
-    void PickWeapon() {
+    private void PickWeapon() {
         inputDisabled = true;
 
         if (optionOne.pointer.activeSelf) {

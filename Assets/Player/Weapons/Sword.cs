@@ -7,8 +7,8 @@ public class Sword : Weapon {
         Physics2D.SyncTransforms();
         RaycastHit2D[] hits = BoxCastAll(gameObject.transform.position + new Vector3(-4 * direction, 0, 0), new Vector2(10, 8), 0, Vector2.right * direction, 1);
 
-        foreach (RaycastHit2D hit in hits) {
-            Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+        for (int i = 0; i < hits.Length; i++) {
+            Enemy enemy = hits[i].collider.gameObject.GetComponent<Enemy>();
 
             if (enemy != null) {
                 enemy.Hit();
@@ -23,9 +23,16 @@ public class Sword : Weapon {
         animator.Play("sword walk");
     }
 
-    static public RaycastHit2D[] BoxCastAll(Vector2 origen, Vector2 size, float angle, Vector2 direction, float distance) {
+    private RaycastHit2D[] BoxCastAll(Vector2 origen, Vector2 size, float angle, Vector2 direction, float distance) {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(origen, size, angle, direction, distance);
 
+#if UNITY_EDITOR
+        DrawDebugInfo(hits, origen, size, angle, direction, distance);
+#endif
+        return hits;
+    }
+
+    static private void DrawDebugInfo(RaycastHit2D[] hits, Vector2 origen, Vector2 size, float angle, Vector2 direction, float distance) {
         //Setting up the points to draw the cast
         Vector2 p1, p2, p3, p4, p5, p6, p7, p8;
         float w = size.x * 0.5f;
@@ -72,7 +79,5 @@ public class Sword : Weapon {
         if (hits.Length > 0) {
             Debug.DrawLine(hits[0].point, hits[0].point + hits[0].normal.normalized * 0.2f, Color.red, 1);
         }
-
-        return hits;
     }
 }

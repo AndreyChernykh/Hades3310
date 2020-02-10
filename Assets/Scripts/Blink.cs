@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Blink : MonoBehaviour {
-    SpriteRenderer sprite;
-    public Color color1;
-    public Color color2;
-    Color initialColor;
+    private Color color1;
+    private Color color2;
+    private Color initialColor;
+
+    private SpriteRenderer sprite;
 
     private void Awake() {
+        sprite = GetComponent<SpriteRenderer>();
+
         color1 = new Color32(67, 82, 61, 255);
         color2 = new Color32(199, 240, 216, 255);
 
-        sprite = GetComponent<SpriteRenderer>();
         sprite.color = color1;
         initialColor = color1;
     }

@@ -19,7 +19,8 @@ public static class Stats {
 
     public static int money = 0;
 
-    public static int currentLevel = 0;
+    public static int currentRoom = 0;
+    public static int bossRoom = 13;
 
     public static Weapons selectedWeapon = Weapons.SWORD;
 
@@ -28,6 +29,6 @@ public static class Stats {
         attemptMaxHealth = permanentMaxHealth;
         currentHealth = permanentMaxHealth;
         currentPower = permanentPower;
-        currentLevel = 0;
+        currentRoom = 0;
     }
 }

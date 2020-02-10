@@ -3,32 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Blink)), RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour {
-    public Animator animator;
-    public AudioManager audioManager;
-    public LayerMask wallLayer;
-    public Blink blink;
+    [SerializeField]
+    private LayerMask wallLayer;
 
-    public GameObject bow;
-    public GameObject sword;
+    [Header("Weapon prefabs")]
+    [SerializeField]
+    private GameObject bow;
+    [SerializeField]
+    private GameObject sword;
 
-    [HideInInspector]
-    public Weapon currentWeapon;
+    private Weapon currentWeapon;
 
-    public float speed = 1;
-    public float dashSpeed = 10;
-    public float attackTimeout = 0.5f;
-    public float timeBeforeCanAttack;
+    [Header("Movement")]
+    [SerializeField]
+    private float speed = 1;
 
-    bool isDash;
-    bool isFacingRight = false;
+    [Header("Attack")]
+    [SerializeField]
+    private float attackTimeout = 0.5f;
+    [SerializeField]
+    private float timeBeforeCanAttack;
+
+    private bool isFacingRight = false;
+
+    private Animator animator;
+    private Blink blink;
+
+    private void Awake() {
+        blink = GetComponent<Blink>();
+        animator = GetComponent<Animator>();
+    }
 
     private void Start() {
-        audioManager.Play("music");
         SetSelectedWeapon();
     }
 
-    void SetSelectedWeapon() {
+    private void SetSelectedWeapon() {
         if (Stats.selectedWeapon == Weapons.SWORD) {
             bow.SetActive(false);
             currentWeapon = sword.GetComponent<Sword>();
@@ -41,12 +53,8 @@ public class Player : MonoBehaviour {
         currentWeapon.SetAnimator(animator);
     }
 
-    void Update() {
+    private void Update() {
         timeBeforeCanAttack -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.G)) {
-            isDash = true;
-        }
 
         if (Input.GetButtonDown("Fire1")) {
             Attack();
@@ -62,49 +70,30 @@ public class Player : MonoBehaviour {
         Move(new Vector2(xInput, Input.GetAxisRaw("Vertical")).normalized);
     }
 
-    Coroutine musicPaused;
-
-    private void Attack() {
-        if (timeBeforeCanAttack <= 0) {
-            timeBeforeCanAttack = attackTimeout;
-            currentWeapon.Attack(transform.localScale.x * -1);
-        }
-    }
-
     private void Move(Vector2 input) {
-        float dist = (isDash ? dashSpeed : speed);
-        TryMoveAxis(Vector2.right * input.x, dist);
-        TryMoveAxis(Vector2.up * input.y, dist);
-
-        audioManager.Play("test");
-
-        if (musicPaused != null) {
-            StopCoroutine(musicPaused);
-        }
-
-        //musicPaused = StartCoroutine(PauseMusic());
-        isDash = false;
+        TryMove(Vector2.right * input.x);
+        TryMove(Vector2.up * input.y);
     }
 
-    void TryMoveAxis(Vector2 dir, float dist) {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position, dir, dist + 3, wallLayer);
-
-        Debug.DrawRay(transform.position, dir * (dist + 3), Color.magenta);
+    private void TryMove(Vector2 direction) {
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position, direction, speed, wallLayer);
 
         if (hit.collider == null) {
-            transform.Translate(dir * dist);
+            transform.Translate(direction * speed);
         }
 
         Physics2D.SyncTransforms();
     }
 
-    private IEnumerator PauseMusic() {
-        audioManager.Pause("music");
-        yield return new WaitForSeconds(0.6f);
-        audioManager.Play("music");
+    private void Attack() {
+        if (timeBeforeCanAttack <= 0) {
+            timeBeforeCanAttack = attackTimeout;
+            currentWeapon.Attack(transform.localScale.x * -1);
+            AudioManager.Instance.Play("test");
+        }
     }
 
-    public void Damage(Enemy enemy) {
+    public void GotHitBy(Enemy enemy) {
         Stats.currentHealth -= enemy.damage;
         blink.StartBlinking();
 

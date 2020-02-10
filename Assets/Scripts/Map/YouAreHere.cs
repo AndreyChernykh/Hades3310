@@ -34,7 +34,7 @@ public class YouAreHere : MonoBehaviour {
         timeBeforeNextBlink = blinkTime;
         MoveToNextPoint();
 
-        Vector2 initialPoint = points[Stats.currentLevel];
+        Vector2 initialPoint = points[Stats.currentRoom];
         transform.position = new Vector3(initialPoint.x, initialPoint.y, 0);
     }
 
@@ -49,8 +49,8 @@ public class YouAreHere : MonoBehaviour {
 
     [ContextMenu("MoveToNextPoint")]
     public void MoveToNextPoint() {
-        LeanTween.move(gameObject, points[Stats.currentLevel + 1], transitionTime).setOnComplete(() => {
-            Stats.currentLevel += 1;
+        LeanTween.move(gameObject, points[Stats.currentRoom + 1], transitionTime).setOnComplete(() => {
+            Stats.currentRoom += 1;
             LevelLoader.Instance.LoadNextLevel();
         });
     }
