@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sword : Weapon {
     override public void Attack(float direction) {
-        Physics2D.SyncTransforms();
         RaycastHit2D[] hits = BoxCastAll(gameObject.transform.position + new Vector3(-4 * direction, 0, 0), new Vector2(10, 8), 0, Vector2.right * direction, 1);
 
         for (int i = 0; i < hits.Length; i++) {

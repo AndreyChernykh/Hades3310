@@ -81,8 +81,6 @@ public class Player : MonoBehaviour {
         if (hit.collider == null) {
             transform.Translate(direction * speed);
         }
-
-        Physics2D.SyncTransforms();
     }
 
     private void Attack() {
