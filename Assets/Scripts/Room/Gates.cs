@@ -8,12 +8,19 @@ public class Gates : MonoBehaviour {
     [SerializeField]
     private GameObject openedGates;
 
+    private bool isOpened = false;
+
     public void Open() {
         closedGates.SetActive(false);
         openedGates.SetActive(true);
+        isOpened = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (!isOpened) {
+            return;
+        }
+
         if (other.GetComponent<Player>() != null) {
             if (Stats.currentRoom + 1 == Stats.bossRoom) {
                 LevelLoader.Instance.LoadLevel(LEVELS.BOSS_FIGHT);
