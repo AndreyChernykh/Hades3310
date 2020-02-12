@@ -47,7 +47,7 @@ public class Skull : Enemy {
         }));
 
         attackState.stayActions.Add(new FSM.Action(() => {
-            transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed);
+            transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
         }));
 
         attackState.transitions.Add(new FSM.Transition(() => {

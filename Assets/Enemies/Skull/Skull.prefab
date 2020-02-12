@@ -123,10 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 5
-  speed: 0.3
-  customSeed: 0
-  blink: {fileID: -12607399495873775}
-  hit: {fileID: -4368650270881829617}
+  speed: 80
   xRange: {x: -35, y: 35}
   yRange: {x: -20, y: 15}
   waitTimeMs: {x: 1000, y: 2200}
@@ -189,8 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65a1a2b7152ac74a94f777e769be7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 67, g: 82, b: 61, a: 1}
-  color2: {r: 199, g: 240, b: 216, a: 1}
 --- !u!114 &-4368650270881829617
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class Arrow : MonoBehaviour {
     }
 
     void Update() {
-        transform.Translate(new Vector3(direction * speed, 0, 0));
+        transform.Translate(new Vector3(direction * speed * Time.deltaTime, 0, 0));
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

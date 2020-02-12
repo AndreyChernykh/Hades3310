@@ -87,7 +87,7 @@ public class Devil : Enemy {
         while (chaseTimeLeft >= 0.0f) {
             chaseTimeLeft -= Time.deltaTime;
 
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
             yield return null;
         }

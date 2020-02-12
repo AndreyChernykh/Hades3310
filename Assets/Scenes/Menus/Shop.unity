@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +5
+  m_text: +3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5cbad638d8192504b87e47907dd76994, type: 2}
   m_sharedMaterial: {fileID: 7227020081066685677, guid: 5cbad638d8192504b87e47907dd76994,
@@ -3621,12 +3621,27 @@ PrefabInstance:
     - target: {fileID: 3626039521800749264, guid: c76d5e30a9d23ad44b310896a5427799,
         type: 3}
       propertyPath: m_text
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3626039521800749264, guid: c76d5e30a9d23ad44b310896a5427799,
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626039521800749264, guid: c76d5e30a9d23ad44b310896a5427799,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626039521800749264, guid: c76d5e30a9d23ad44b310896a5427799,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626039521800749264, guid: c76d5e30a9d23ad44b310896a5427799,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c76d5e30a9d23ad44b310896a5427799, type: 3}

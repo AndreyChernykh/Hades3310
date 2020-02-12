@@ -11,7 +11,8 @@ public class YouAreHere : MonoBehaviour {
     [SerializeField]
     private Color color2;
 
-    private float speed = 0.1f;
+    [SerializeField]
+    private float speed = 7;
     private List<Vector2> points = new List<Vector2>();
 
     private float timeBeforeNextBlink;
@@ -76,7 +77,7 @@ public class YouAreHere : MonoBehaviour {
             LevelLoader.Instance.LoadNextLevel();
         }
         else {
-            transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed);
+            transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
         }
     }
 }

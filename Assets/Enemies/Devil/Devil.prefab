@@ -148,10 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   health: 10
-  speed: 0.1
-  customSeed: 0
-  blink: {fileID: 850921433193374751}
-  hit: {fileID: -6318261044166231117}
+  speed: 15
   waitTimeMs: {x: 500, y: 3000}
   chaseTime: 5
 --- !u!114 &850921433193374751
@@ -166,8 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65a1a2b7152ac74a94f777e769be7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 67, g: 82, b: 61, a: 1}
-  color2: {r: 199, g: 240, b: 216, a: 1}
 --- !u!114 &-6318261044166231117
 MonoBehaviour:
   m_ObjectHideFlags: 0

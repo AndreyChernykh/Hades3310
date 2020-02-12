@@ -20,10 +20,11 @@ public class Cerberus : Enemy {
     private Coroutine waitForAttack;
     private Coroutine waitStunned;
     private Vector2 prevPosition;
+    Vector2 nextPosition;
 
     private void Start() {
         InitEnemy();
-        Vector2 nextPosition = transform.position;
+        nextPosition = transform.position;
         prevPosition = nextPosition;
 
         idleState.enterActions.Add(new FSM.Action(() => {
@@ -39,7 +40,7 @@ public class Cerberus : Enemy {
             nextPosition = new Vector2(transform.position.x, yRange[rng.Next(0, yRange.Count)]);
         }));
         relocateState.stayActions.Add(new FSM.Action(() => {
-            transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed);
+            Move();
         }));
         relocateState.transitions.Add(new FSM.Transition(() => {
             return Vector2.Distance(transform.position, nextPosition) < 0.1;
@@ -50,7 +51,7 @@ public class Cerberus : Enemy {
             nextPosition = new Vector2(transform.position.x < 0 ? xRange.y : xRange.x, transform.position.y);
         }));
         attackState.stayActions.Add(new FSM.Action(() => {
-            transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed);
+            Move();
         }));
         attackState.transitions.Add(new FSM.Transition(() => {
             return Vector2.Distance(transform.position, nextPosition) < 0.1;
@@ -60,7 +61,7 @@ public class Cerberus : Enemy {
             nextPosition = prevPosition;
         }));
         returnState.stayActions.Add(new FSM.Action(() => {
-            transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed);
+            Move();
         }));
         returnState.transitions.Add(new FSM.Transition(() => {
             return Vector2.Distance(transform.position, nextPosition) < 1;
@@ -76,6 +77,10 @@ public class Cerberus : Enemy {
 
     private void Update() {
         stateMachine.Tick();
+    }
+
+    private void Move() {
+        transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
     }
 
     protected override void GotHit() {

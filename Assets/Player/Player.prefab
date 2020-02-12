@@ -126,8 +126,7 @@ MonoBehaviour:
     m_Bits: 256
   bow: {fileID: 7443185927594488185}
   sword: {fileID: 7443185926735195855}
-  currentWeapon: {fileID: 0}
-  speed: 0.26
+  speed: 40
   attackTimeout: 0.26
   timeBeforeCanAttack: 0
 --- !u!61 &7443185926331027329
@@ -189,8 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65a1a2b7152ac74a94f777e769be7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 67, g: 82, b: 61, a: 1}
-  color2: {r: 199, g: 240, b: 216, a: 1}
 --- !u!1 &7443185926735195855
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe9838d96f50694494cffd9e10cf067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: 2012638388909210116, guid: 3084305d94464e44391a5d2d9ffb99cf,
+    type: 3}
 --- !u!1 &7443185928130577248
 GameObject:
   m_ObjectHideFlags: 0

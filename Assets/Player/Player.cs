@@ -76,10 +76,11 @@ public class Player : MonoBehaviour {
     }
 
     private void TryMove(Vector2 direction) {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position, direction, speed, wallLayer);
+        float moveDistance = speed * Time.deltaTime;
+        RaycastHit2D hit = Physics2D.Raycast((Vector2) transform.position, direction, moveDistance, wallLayer);
 
         if (hit.collider == null) {
-            transform.Translate(direction * speed);
+            transform.Translate(direction * moveDistance);
         }
     }
 

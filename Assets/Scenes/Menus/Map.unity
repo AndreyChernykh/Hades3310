@@ -309,10 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82df42f29b2fe24386ff9428333fe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 1
   blinkTime: 0.25
   color1: {r: 0.7803922, g: 0.94117653, b: 0.8470589, a: 1}
   color2: {r: 0.2627451, g: 0.32156864, b: 0.2392157, a: 1}
+  speed: 9
 --- !u!1 &1702015496
 GameObject:
   m_ObjectHideFlags: 0
