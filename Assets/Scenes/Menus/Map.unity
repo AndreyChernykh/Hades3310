@@ -312,7 +312,7 @@ MonoBehaviour:
   blinkTime: 0.25
   color1: {r: 0.7803922, g: 0.94117653, b: 0.8470589, a: 1}
   color2: {r: 0.2627451, g: 0.32156864, b: 0.2392157, a: 1}
-  speed: 9
+  speed: 12
 --- !u!1 &1702015496
 GameObject:
   m_ObjectHideFlags: 0
