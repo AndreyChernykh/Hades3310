@@ -98,11 +98,11 @@ public class Blessings : MonoBehaviour {
         }
         else if (blessing == GOD.APHRODITE) {
             text.SetText("Aphrodite healed your wounds! +6 Health");
-            Stats.currentHealth = Mathf.Min(Stats.currentHealth + 6, Stats.attemptMaxHealth);
+            Stats.CurrentHealth = Mathf.Min(Stats.CurrentHealth + 6, Stats.attemptMaxHealth);
         }
         else if (blessing == GOD.DIONYSUS) {
             text.SetText("Dionysus grants you riches! Money (+10) ");
-            Stats.money += 10;
+            Stats.Money += 10;
         }
     }
 }

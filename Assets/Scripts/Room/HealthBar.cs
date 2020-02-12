@@ -10,7 +10,19 @@ public class HealthBar : MonoBehaviour {
         text = GetComponent<TMPro.TextMeshPro>();
     }
 
-    private void Update() {
-        text.SetText($"{Stats.currentHealth.ToString()}/{Stats.attemptMaxHealth.ToString()}");
+    private void OnEnable() {
+        Stats.OnCurrentHealthChange += UpdateHealtBar;
+    }
+
+    private void OnDisable() {
+        Stats.OnCurrentHealthChange -= UpdateHealtBar;
+    }
+
+    private void Start() {
+        UpdateHealtBar();
+    }
+
+    void UpdateHealtBar() {
+        text.SetText($"{Stats.CurrentHealth.ToString()}/{Stats.attemptMaxHealth.ToString()}");
     }
 }

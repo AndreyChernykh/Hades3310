@@ -11,7 +11,7 @@ public class YouAreHere : MonoBehaviour {
     [SerializeField]
     private Color color2;
 
-    private float speed = 0.07f;
+    private float speed = 0.1f;
     private List<Vector2> points = new List<Vector2>();
 
     private float timeBeforeNextBlink;

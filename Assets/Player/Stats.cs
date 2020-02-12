@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +13,29 @@ public static class Stats {
 
     public static int permanentMaxHealth = 10;
     public static int attemptMaxHealth = 10;
-    public static int currentHealth = 10;
+
+    public static event Action OnCurrentHealthChange = delegate { };
+    private static int currentHealth = 10;
+    public static int CurrentHealth {
+        get { return currentHealth; }
+        set {
+            currentHealth = value;
+            OnCurrentHealthChange.Invoke();
+        }
+    }
 
     public static int permanentPower = 1;
     public static int currentPower = 1;
 
-    public static int money = 0;
+    public static event Action OnMoneyChange = delegate { };
+    private static int money = 0;
+    public static int Money {
+        get { return money; }
+        set {
+            money = value;
+            OnMoneyChange.Invoke();
+        }
+    }
 
     public static int currentRoom = 0;
     public static int bossRoom = 13;

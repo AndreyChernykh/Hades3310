@@ -1,4 +1,2 @@
-﻿- Check Update methods
-- FPS meter
-- Profiler
-- Modal dialog
+﻿- Modal dialog
+- Fix gates

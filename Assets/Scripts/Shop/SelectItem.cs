@@ -86,7 +86,7 @@ public class SelectItem : MonoBehaviour {
 
         int price = options[selectedIndex].price.price;
 
-        if (Stats.money < price) {
+        if (Stats.Money < price) {
             notEnoughMoney.SetActive(true);
             return;
         }
@@ -94,8 +94,8 @@ public class SelectItem : MonoBehaviour {
         if (selectedIndex == 0) {
             Stats.permanentMaxHealth += 3;
             Stats.attemptMaxHealth = Stats.permanentMaxHealth;
-            Stats.currentHealth = Stats.permanentMaxHealth;
-            Stats.money -= price;
+            Stats.CurrentHealth = Stats.permanentMaxHealth;
+            Stats.Money -= price;
             maxHealth.SetText(Stats.permanentMaxHealth.ToString());
             maxHealthIncreased.SetActive(true);
         }
@@ -103,7 +103,7 @@ public class SelectItem : MonoBehaviour {
             damageIncreased.SetActive(true);
             Stats.permanentPower += 1;
             Stats.currentPower = Stats.permanentPower;
-            Stats.money -= price;
+            Stats.Money -= price;
             damage.SetText(Stats.permanentPower.ToString());
         }
     }

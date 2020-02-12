@@ -92,10 +92,10 @@ public class Player : MonoBehaviour {
     }
 
     public void GotHitBy(Enemy enemy) {
-        Stats.currentHealth -= enemy.damage;
+        Stats.CurrentHealth -= enemy.damage;
         blink.StartBlinking();
 
-        if (Stats.currentHealth <= 0) {
+        if (Stats.CurrentHealth <= 0) {
             LevelLoader.Instance.LoadLevel(LEVELS.GAME_OVER);
             gameObject.SetActive(false);
         }

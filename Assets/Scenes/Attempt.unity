@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_UpscaleRT
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5703768768167544932, guid: a89485aa2ea7a4a429cfd3420a7b9351,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5703768768167544933, guid: a89485aa2ea7a4a429cfd3420a7b9351,
         type: 3}
       propertyPath: orthographic size
@@ -272,7 +277,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5703768768167544932, guid: a89485aa2ea7a4a429cfd3420a7b9351, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a89485aa2ea7a4a429cfd3420a7b9351, type: 3}
 --- !u!1001 &218208210
 PrefabInstance:
@@ -1514,7 +1520,7 @@ PrefabInstance:
     - target: {fileID: 7443185926331027328, guid: 134267ea0694a994c928e4c991b67a3d,
         type: 3}
       propertyPath: speed
-      value: 0.26
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7443185926331027331, guid: 134267ea0694a994c928e4c991b67a3d,
         type: 3}
