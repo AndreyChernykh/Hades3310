@@ -83,7 +83,7 @@ public class Cerberus : Enemy {
         transform.position = Vector2.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
     }
 
-    protected override void GotHit() {
+    protected override void GotHit(bool isStunned) {
         health -= Stats.currentPower;
 
         if (health <= 0) {

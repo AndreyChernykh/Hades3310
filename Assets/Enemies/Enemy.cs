@@ -54,7 +54,7 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         Stats.Money += 1;
     }
 
-    protected virtual void GotHit() { }
+    protected virtual void GotHit(bool isStunned) { }
 
     private void OnTriggerEnter2D(Collider2D other) {
         Player player = other.gameObject.GetComponent<Player>();
@@ -64,9 +64,9 @@ abstract public class Enemy : MonoBehaviour, IRandom {
         }
     }
 
-    public void Hit() {
+    public void Hit(bool isStunned) {
         blink.StartBlinking();
         hit.EmitParticles();
-        GotHit();
+        GotHit(isStunned);
     }
 }

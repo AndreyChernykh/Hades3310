@@ -20,10 +20,6 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float speed = 1;
 
-    [Header("Attack")]
-    [SerializeField]
-    private float attackTimeout = 0.5f;
-    [SerializeField]
     private float timeBeforeCanAttack;
 
     private bool isFacingRight = false;
@@ -86,7 +82,7 @@ public class Player : MonoBehaviour {
 
     private void Attack() {
         if (timeBeforeCanAttack <= 0) {
-            timeBeforeCanAttack = attackTimeout;
+            timeBeforeCanAttack = currentWeapon.attackTimeout;
             currentWeapon.Attack(transform.localScale.x * -1);
             AudioManager.Instance.Play("test");
         }

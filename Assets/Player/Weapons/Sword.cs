@@ -10,7 +10,7 @@ public class Sword : Weapon {
             Enemy enemy = hits[i].collider.gameObject.GetComponent<Enemy>();
 
             if (enemy != null) {
-                enemy.Hit();
+                enemy.Hit(true);
             }
         }
 

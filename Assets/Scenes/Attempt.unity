@@ -1533,5 +1533,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7443185927594488191, guid: 134267ea0694a994c928e4c991b67a3d,
+        type: 3}
+      propertyPath: attackTimeout
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443185928130577248, guid: 134267ea0694a994c928e4c991b67a3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443185928130577252, guid: 134267ea0694a994c928e4c991b67a3d,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 134267ea0694a994c928e4c991b67a3d, type: 3}

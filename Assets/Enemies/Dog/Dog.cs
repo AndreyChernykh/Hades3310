@@ -13,7 +13,7 @@ public class Dog : Enemy {
     private State idleState = new State("idle");
     private State attackState = new State("attack");
     private State chaseState = new State("chase");
-    private State hurtState = new State("hurt");
+    private State stunnedState = new State("hurt");
     private State deadState = new State("dead");
 
     private Coroutine waitAfterAttack;
@@ -62,13 +62,13 @@ public class Dog : Enemy {
             Die();
         }));
 
-        hurtState.enterActions.Add(new FSM.Action(() => {
+        stunnedState.enterActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
             }
             waitStunned = StartCoroutine(Wait(1, chaseState));
         }));
-        hurtState.exitActions.Add(new FSM.Action(() => {
+        stunnedState.exitActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
             }
@@ -92,14 +92,16 @@ public class Dog : Enemy {
         stateMachine.ChangeState(idleState);
     }
 
-    protected override void GotHit() {
+    protected override void GotHit(bool isStunned) {
         health -= Stats.currentPower;
 
         if (health <= 0) {
             stateMachine.ChangeState(deadState);
         }
         else {
-            stateMachine.ChangeState(hurtState);
+            if (isStunned) {
+                stateMachine.ChangeState(stunnedState);
+            }
         }
     }
 }

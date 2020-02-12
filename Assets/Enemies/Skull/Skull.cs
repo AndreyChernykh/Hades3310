@@ -15,7 +15,7 @@ public class Skull : Enemy {
     private State idleState = new State("idle");
     private State walkState = new State("walk");
     private State attackState = new State("attack");
-    private State hurtState = new State("hurt");
+    private State stunnedState = new State("hurt");
     private State deadState = new State("dead");
 
     private Coroutine waitForAttack;
@@ -58,13 +58,13 @@ public class Skull : Enemy {
             Die();
         }));
 
-        hurtState.enterActions.Add(new FSM.Action(() => {
+        stunnedState.enterActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
             }
             waitStunned = StartCoroutine(Wait(2, idleState));
         }));
-        hurtState.exitActions.Add(new FSM.Action(() => {
+        stunnedState.exitActions.Add(new FSM.Action(() => {
             if (waitStunned != null) {
                 StopCoroutine(waitStunned);
             }
@@ -77,14 +77,16 @@ public class Skull : Enemy {
         stateMachine.Tick();
     }
 
-    protected override void GotHit() {
+    protected override void GotHit(bool isStunned) {
         health -= Stats.currentPower;
 
         if (health <= 0) {
             stateMachine.ChangeState(deadState);
         }
         else {
-            stateMachine.ChangeState(hurtState);
+            if (isStunned) {
+                stateMachine.ChangeState(stunnedState);
+            }
         }
     }
 }

@@ -728,6 +728,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7443185926735195843, guid: 134267ea0694a994c928e4c991b67a3d,
+        type: 3}
+      propertyPath: attackTimeout
+      value: 0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 7443185927594488191, guid: 134267ea0694a994c928e4c991b67a3d,
         type: 3}
       propertyPath: arrowPrefab

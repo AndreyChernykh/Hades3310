@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour {
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
 
         if (enemy != null) {
-            enemy.Hit();
+            enemy.Hit(false);
         }
 
         Destroy(gameObject);
