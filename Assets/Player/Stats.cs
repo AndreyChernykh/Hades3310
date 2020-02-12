@@ -24,7 +24,7 @@ public static class Stats {
         }
     }
 
-    public static int permanentPower = 1;
+    public static int permanentDamagePerHit = 1;
     public static int currentPower = 1;
 
     public static event Action OnMoneyChange = delegate { };
@@ -46,7 +46,7 @@ public static class Stats {
         attempts += 1;
         attemptMaxHealth = permanentMaxHealth;
         currentHealth = permanentMaxHealth;
-        currentPower = permanentPower;
+        currentPower = permanentDamagePerHit;
         currentRoom = 0;
     }
 }

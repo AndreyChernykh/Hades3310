@@ -11,16 +11,9 @@ public struct ShopOption {
 public class SelectItem : MonoBehaviour {
     [SerializeField]
     private List<ShopOption> options = new List<ShopOption>();
+
     [SerializeField]
-    private GameObject notEnoughMoney;
-    [SerializeField]
-    private GameObject maxHealthIncreased;
-    [SerializeField]
-    private GameObject damageIncreased;
-    [SerializeField]
-    private TMPro.TextMeshPro maxHealth;
-    [SerializeField]
-    private TMPro.TextMeshPro damage;
+    private ModalDialog dialog;
 
     private bool inputDisabled;
     private int selectedIndex = 0;
@@ -50,14 +43,8 @@ public class SelectItem : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Fire1")) {
-            if (notEnoughMoney.activeSelf) {
-                notEnoughMoney.SetActive(false);
-            }
-            else if (maxHealthIncreased.activeSelf) {
-                maxHealthIncreased.SetActive(false);
-            }
-            else if (damageIncreased.activeSelf) {
-                damageIncreased.SetActive(false);
+            if (dialog.IsOpened) {
+                dialog.Close();
             }
             else {
                 PickItem();
@@ -87,7 +74,8 @@ public class SelectItem : MonoBehaviour {
         int price = options[selectedIndex].price.price;
 
         if (Stats.Money < price) {
-            notEnoughMoney.SetActive(true);
+            dialog.SetText("Sorry!\nNot enough money");
+            dialog.Open();
             return;
         }
 
@@ -96,15 +84,17 @@ public class SelectItem : MonoBehaviour {
             Stats.attemptMaxHealth = Stats.permanentMaxHealth;
             Stats.CurrentHealth = Stats.permanentMaxHealth;
             Stats.Money -= price;
-            maxHealth.SetText(Stats.permanentMaxHealth.ToString());
-            maxHealthIncreased.SetActive(true);
+
+            dialog.SetText($"Max health increased to {Stats.permanentMaxHealth.ToString()}");
+            dialog.Open();
         }
         else if (selectedIndex == 1) {
-            damageIncreased.SetActive(true);
-            Stats.permanentPower += 1;
-            Stats.currentPower = Stats.permanentPower;
+            Stats.permanentDamagePerHit += 1;
+            Stats.currentPower = Stats.permanentDamagePerHit;
             Stats.Money -= price;
-            damage.SetText(Stats.permanentPower.ToString());
+
+            dialog.SetText($"Damage increased to {Stats.permanentDamagePerHit.ToString()}");
+            dialog.Open();
         }
     }
 

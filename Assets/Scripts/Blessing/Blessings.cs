@@ -31,9 +31,7 @@ public class Blessings : MonoBehaviour {
     private BlessingOption blessingTwo;
 
     [SerializeField]
-    private GameObject message;
-    [SerializeField]
-    private TMPro.TextMeshPro text;
+    private ModalDialog dialog;
 
     [SerializeField]
     private List<BlessingOption> options = new List<BlessingOption>();
@@ -63,7 +61,7 @@ public class Blessings : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Fire1")) {
-            if (message.activeSelf) {
+            if (dialog.IsOpened) {
                 inputDisabled = true;
                 LevelLoader.Instance.LoadLevel(LEVELS.MAP);
             }
@@ -85,24 +83,23 @@ public class Blessings : MonoBehaviour {
     }
 
     private void ApplyBlessing(GOD blessing) {
-
-        message.SetActive(true);
-
         if (blessing == GOD.ZEUS) {
-            text.SetText("Zeus grants you power! +5 Max health");
+            dialog.SetText("Zeus grants you power! +5 Max health");
             Stats.attemptMaxHealth += 5;
         }
         else if (blessing == GOD.ARES) {
-            text.SetText("Ares grants you strength! +1 Damage");
+            dialog.SetText("Ares grants you strength! +1 Damage");
             Stats.currentPower += 1;
         }
         else if (blessing == GOD.APHRODITE) {
-            text.SetText("Aphrodite healed your wounds! +6 Health");
+            dialog.SetText("Aphrodite healed your wounds! +6 Health");
             Stats.CurrentHealth = Mathf.Min(Stats.CurrentHealth + 6, Stats.attemptMaxHealth);
         }
         else if (blessing == GOD.DIONYSUS) {
-            text.SetText("Dionysus grants you riches! Money (+10) ");
+            dialog.SetText("Dionysus grants you riches! Money (+10) ");
             Stats.Money += 10;
         }
+
+        dialog.Open();
     }
 }
