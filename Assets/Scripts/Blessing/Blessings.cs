@@ -85,15 +85,15 @@ public class Blessings : MonoBehaviour {
     private void ApplyBlessing(GOD blessing) {
         if (blessing == GOD.ZEUS) {
             dialog.SetText("Zeus grants you power! +5 Max health");
-            Stats.attemptMaxHealth += 5;
+            Stats.temporaryMaxHealth += 5;
         }
         else if (blessing == GOD.ARES) {
-            dialog.SetText("Ares grants you strength! +1 Damage");
+            dialog.SetText("Ares grants you strength! +1 Power");
             Stats.currentPower += 1;
         }
         else if (blessing == GOD.APHRODITE) {
             dialog.SetText("Aphrodite healed your wounds! +6 Health");
-            Stats.CurrentHealth = Mathf.Min(Stats.CurrentHealth + 6, Stats.attemptMaxHealth);
+            Stats.CurrentHealth = Mathf.Min(Stats.CurrentHealth + 6, Stats.temporaryMaxHealth);
         }
         else if (blessing == GOD.DIONYSUS) {
             dialog.SetText("Dionysus grants you riches! Money (+10) ");

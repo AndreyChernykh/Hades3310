@@ -136,12 +136,12 @@ PrefabInstance:
     - target: {fileID: 5703768768167544933, guid: a89485aa2ea7a4a429cfd3420a7b9351,
         type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5703768768167544933, guid: a89485aa2ea7a4a429cfd3420a7b9351,
         type: 3}
       propertyPath: m_ForceIntoRT
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5703768768167544933, guid: a89485aa2ea7a4a429cfd3420a7b9351,
         type: 3}

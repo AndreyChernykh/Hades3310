@@ -23,6 +23,6 @@ public class HealthBar : MonoBehaviour {
     }
 
     void UpdateHealtBar() {
-        text.SetText($"{Stats.CurrentHealth.ToString()}/{Stats.attemptMaxHealth.ToString()}");
+        text.SetText($"{Stats.CurrentHealth.ToString()}/{Stats.temporaryMaxHealth.ToString()}");
     }
 }

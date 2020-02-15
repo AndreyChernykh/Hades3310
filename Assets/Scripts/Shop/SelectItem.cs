@@ -81,7 +81,7 @@ public class SelectItem : MonoBehaviour {
 
         if (selectedIndex == 0) {
             Stats.permanentMaxHealth += 3;
-            Stats.attemptMaxHealth = Stats.permanentMaxHealth;
+            Stats.temporaryMaxHealth = Stats.permanentMaxHealth;
             Stats.CurrentHealth = Stats.permanentMaxHealth;
             Stats.Money -= price;
 
@@ -89,11 +89,11 @@ public class SelectItem : MonoBehaviour {
             dialog.Open();
         }
         else if (selectedIndex == 1) {
-            Stats.permanentDamagePerHit += 1;
-            Stats.currentPower = Stats.permanentDamagePerHit;
+            Stats.permanentPower += 1;
+            Stats.currentPower = Stats.permanentPower;
             Stats.Money -= price;
 
-            dialog.SetText($"Damage increased to {Stats.permanentDamagePerHit.ToString()}");
+            dialog.SetText($"Power increased to {Stats.permanentPower.ToString()}");
             dialog.Open();
         }
     }

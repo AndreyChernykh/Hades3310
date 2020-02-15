@@ -12,7 +12,7 @@ public static class Stats {
     public static int attempts = 0;
 
     public static int permanentMaxHealth = 10;
-    public static int attemptMaxHealth = 10;
+    public static int temporaryMaxHealth = 10;
 
     public static event Action OnCurrentHealthChange = delegate { };
     private static int currentHealth = 10;
@@ -24,7 +24,7 @@ public static class Stats {
         }
     }
 
-    public static int permanentDamagePerHit = 1;
+    public static int permanentPower = 1;
     public static int currentPower = 1;
 
     public static event Action OnMoneyChange = delegate { };
@@ -44,9 +44,9 @@ public static class Stats {
 
     public static void ResetStats() {
         attempts += 1;
-        attemptMaxHealth = permanentMaxHealth;
+        temporaryMaxHealth = permanentMaxHealth;
         currentHealth = permanentMaxHealth;
-        currentPower = permanentDamagePerHit;
+        currentPower = permanentPower;
         currentRoom = 0;
     }
 }
