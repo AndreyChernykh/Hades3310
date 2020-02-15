@@ -12,8 +12,8 @@ Made with Unity
 
 **Controls**
 
-- **W A S D** or arrows to move
-- **Crtl** or **Left Click** to select or attack
+- Press **W A S D** or **arrows** to move
+- Press **Crtl** or **Left Click** to select or attack
 
 ---
 **Disclaimer**: 
