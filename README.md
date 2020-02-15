@@ -10,6 +10,11 @@ Play Hades3310 on https://mulberg.itch.io/hades3310
 Hades3310 was created as an entry for NOKIA 3310 JAM 2 https://itch.io/jam/nokiajam2 
 Made with Unity
 
+**Controls**
+
+- **W A S D** or arrows to move
+- **Crtl** or **Left Click** to select or attack
+
 ---
 **Disclaimer**: 
 This game is a **non-commercial fan project**, inspired by "Hades" https://www.supergiantgames.com/games/hades/ by Supergiant Games
