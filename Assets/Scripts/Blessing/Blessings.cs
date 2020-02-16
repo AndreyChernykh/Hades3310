@@ -61,6 +61,7 @@ public class Blessings : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Fire1")) {
+            AudioManager.Instance.Play("action");
             if (dialog.IsOpened) {
                 inputDisabled = true;
                 LevelLoader.Instance.LoadLevel(LEVELS.MAP);

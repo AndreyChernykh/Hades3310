@@ -39,6 +39,7 @@ public class WeaponSelect : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Fire1")) {
+            AudioManager.Instance.Play("action");
             PickWeapon();
         }
 

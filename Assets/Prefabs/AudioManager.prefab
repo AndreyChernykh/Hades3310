@@ -45,9 +45,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: test
-    clip: {fileID: 8300000, guid: b90e8c1dc97dc864593df95d5095cf1a, type: 3}
+    clip: {fileID: 8300000, guid: e073260afdc00ad458ad16cd519e9c2b, type: 3}
     pitch: 1
-    volume: 0.4
+    volume: 0.464
+    priority: 256
+    loop: 0
+    source: {fileID: 0}
+  - name: action
+    clip: {fileID: 8300000, guid: 6c692f9649ea0aa4692a43452c137800, type: 3}
+    pitch: 1
+    volume: 0.464
+    priority: 256
+    loop: 0
+    source: {fileID: 0}
+  - name: chamber
+    clip: {fileID: 8300000, guid: 4e0fb2dbe945cee459107cf970b9f387, type: 3}
+    pitch: 1
+    volume: 0.464
+    priority: 256
+    loop: 0
+    source: {fileID: 0}
+  - name: hit
+    clip: {fileID: 8300000, guid: 828f041b17432e7419df4b09540739af, type: 3}
+    pitch: 1
+    volume: 0.464
+    priority: 256
+    loop: 0
+    source: {fileID: 0}
+  - name: victory
+    clip: {fileID: 8300000, guid: a1582e8c92fe5064584d98926988c02e, type: 3}
+    pitch: 1
+    volume: 0.464
+    priority: 256
+    loop: 0
+    source: {fileID: 0}
+  - name: game over
+    clip: {fileID: 8300000, guid: 378e9d5c16493c04eb4835d8e0b4e971, type: 3}
+    pitch: 1
+    volume: 0.464
     priority: 256
     loop: 0
     source: {fileID: 0}

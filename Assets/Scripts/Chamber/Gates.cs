@@ -22,6 +22,7 @@ public class Gates : MonoBehaviour {
         }
 
         if (other.GetComponent<Player>() != null) {
+            AudioManager.Instance.Play("chamber");
             if (Stats.currentRoom + 1 == Stats.bossRoom) {
                 LevelLoader.Instance.LoadLevel(LEVELS.BOSS_FIGHT);
                 return;

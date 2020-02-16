@@ -84,11 +84,12 @@ public class Player : MonoBehaviour {
         if (timeBeforeCanAttack <= 0) {
             timeBeforeCanAttack = currentWeapon.attackTimeout;
             currentWeapon.Attack(transform.localScale.x * -1);
-            AudioManager.Instance.Play("test");
+            AudioManager.Instance.Play("action");
         }
     }
 
     public void GotHitBy(Enemy enemy) {
+        AudioManager.Instance.Play("hit");
         Stats.CurrentHealth -= enemy.damage;
         blink.StartBlinking();
 

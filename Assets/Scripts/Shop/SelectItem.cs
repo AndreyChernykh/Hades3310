@@ -43,6 +43,7 @@ public class SelectItem : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Fire1")) {
+            AudioManager.Instance.Play("action");
             if (dialog.IsOpened) {
                 dialog.Close();
             }
