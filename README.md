@@ -3,7 +3,8 @@
 **There is no escape from Hell! Or is it?**
 
 *You're a son of the Greek god of the dead and the king of the underworld​ Hades, wanting to escape the Land of the Dead and reach Olympus.*
-*A rogue-like game (or rogue-lite maybe). After you die, you start over again, but you keep all your money and all permanent upgrades that were bought in the shop.* 
+
+*It is a Roguelike game (or Roguelite). After you die, you start over again, but you keep all your money and all your permanent upgrades that were previously bought in the shop.* 
 
 Play Hades3310 on https://mulberg.itch.io/hades3310
 
